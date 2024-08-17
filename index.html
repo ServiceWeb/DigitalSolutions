@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalCraft Solutions Miami</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary-color: #00A8E8;
+            --secondary-color: #FF6B6B;
+            --background-color: #f0f8ff;
+            --text-color: #333;
+            --accent-color: #FFD166;
+        }
+        
+        body {
+            font-family: 'Heebo', 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .hero {
+            /height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url("C:\\Users\\morip\\Desktop\\Designer.png");
+            background-size:  cover ;
+            height: 100vh;
+            position: page;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .services {
+            padding: 6rem 0;
+            background-color: white;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-item {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 65px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .button:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 2215px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-switch:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        body.lang-english .lang-switch {
+            right: auto;
+            left: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch" onclick="toggleLanguage()">🌐 EN | עב</div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#home" class="lang-he">בית</a><a href="#home" class="lang-en">Home</a></li>
+                    <li><a href="#services" class="lang-he">שירותים</a><a href="#services" class="lang-en">Services</a></li>
+                    <li><a href="#contact" class="lang-he">צור קשר</a><a href="#contact" class="lang-en">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="lang-he">פתרונות דיגיטליים מתקדמים</h1>
+                <h1 class="lang-en">Advanced Digital Solutions</h1>
+                <p class="lang-he">הפוך את החזון הדיגיטלי שלך למציאות</p>
+                <p class="lang-en">Turn Your Digital Vision into Reality</p>
+                <a href="#contact" class="button lang-he">התחל עכשיו</a>
+                <a href="#contact" class="button lang-en">Get Started</a>
+            </div>
+        </section>
+
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="lang-he">השירותים שלנו</h2>
+                <h2 class="lang-en">Our Services</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+
+                        <div class="service-icon">🌍</div>
+                        <h3 class="lang-he">עיצוב ופיתוח אתרים</h3>
+                        <h3 class="lang-en">Website Design & Development</h3>
+                        <p class="lang-he">אנו מעצבים ומפתחים אתרים מרהיבים ומותאמים אישית, המשלבים אסתטיקה מודרנית עם פונקציונליות מתקדמת. האתרים שלנו מותאמים למובייל ומאופטמים למנועי חיפוש, כדי להבטיח נראות מקסימלית ללקוחותינו.</p>
+                        <p class="lang-en">We design and develop stunning, custom websites that combine modern aesthetics with advanced functionality. Our sites are mobile-responsive and SEO-optimized to ensure maximum visibility for our clients.</p>                    
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">📱</div>
+                        <h3 class="lang-he">אפליקציות מותאמות אישית</h3>
+                        <h3 class="lang-en">Custom Web Applications</h3>
+                        <p class="lang-he">אנו מפתחים אפליקציות ייחודיות המותאמות לצרכים הספציפיים של עסקים בפלורידה. מערכות ניהול תוכן, פלטפורמות הזמנות, או כלי ניהול - אנחנו מספקים פתרונות חדשניים שמייעלים תהליכים ומגדילים רווחים.</p>
+                        <p class="lang-en">We develop unique applications tailored to the specific needs of Florida businesses. From content management systems to booking platforms or management tools - we provide innovative solutions that streamline processes and increase profits.</p>                      
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🎨</div>
+                        <h3 class="lang-he">עיצובים מותאמים אישית</h3>
+                        <h3 class="lang-en">UI/UX Custom designs</h3>
+                        <p class="lang-he">ממשקים חדשים ומעודכנים  </p>
+                        <p class="lang-en"> New and updated interfaces</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🥇</div>
+                        <h3 class="lang-he">שירות אישי 24/7</h3>
+                        <h3 class="lang-en">Personal service 24/7</h3>
+                        <p class="lang-he">שירות אמין הוא כזה שמספק למשתמשים תחושת ביטחון , בזכות שקיפות, זמינות גבוהה, ותמיכה מקצועית, תוך עמידה בציפיות ובתחייבויות שניתנות מראש.  </p>
+                        <p class="lang-en"> A reliable service is one that provides users with a sense of security, thanks to transparency, high availability, and professional support, while meeting the expectations and commitments given in advance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="cta">
+    <div class="container">
+        <h2 class="lang-he">מוכנים להצליח בעולם הדיגיטלי?</h2>
+        <h2 class="lang-en">Ready to Succeed in the Digital World?</h2>
+        <p class="lang-he">צרו איתנו קשר עוד היום לייעוץ חינם!</p>
+        <p class="lang-en">Contact us today for a free consultation!</p>
+        <form action="mailto:info@digitalcraftmiami.com" method="post" enctype="text/plain">
+            <input type="email" name="email" placeholder="Email " required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <button type="submit" class="button lang-he">פרטים ליצירת קשר</button>
+            <button type="submit" class="button lang-en">Contact details</button>
+        </form>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="lang-he">&copy; 2024 DigitalSolutions  כל הזכויות שמורות.</p>
+            <p class="lang-en">&copy; 2024 DigitalSolutions  All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic protection against opening in another tab
+        if (window.opener && window.opener !== window) {
+            window.location = "about:blank";
+        }
+
+        // Language toggle functionality
+        function toggleLanguage() {
+            document.body.classList.toggle('lang-english');
+            updateLanguageDisplay();
+        }
+
+        function updateLanguageDisplay() {
+            const isEnglish = document.body.classList.contains('lang-english');
+            document.querySelectorAll('.lang-he').forEach(el => el.style.display = isEnglish ? 'none' : 'inline-block');
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = isEnglish ? 'inline-block' : 'none');
+            document.documentElement.lang = isEnglish ? 'en' : 'he';
+            document.documentElement.dir = isEnglish ? 'ltr' : 'rtl';
+            
+            // Update language switch button text
+            const langSwitch = document.querySelector('.lang-switch');
+            langSwitch.textContent = isEnglish ? '🌐 עב | EN' : '🌐 EN | עב';
+        }
+
+        // Initial language setup
+        updateLanguageDisplay();
+    </script>
+</body>
+</html>
